@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f6f5f2;
+  --ink: #0a0a0a;
+  --ink-soft: #1a1a1a;
+  --accent: #6b675f;
+  --line: rgba(10, 10, 10, 0.12);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-feature-settings: "ss01", "cv01", "cv11";
+  cursor: none;
+}
+
+/* Hide custom cursor fallback on touch / coarse pointers */
+@media (hover: none), (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ------------------------------------------------------------------ */
+/* Apple Liquid Glass                                                  */
+/* ------------------------------------------------------------------ */
+
+.glass {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 2px 2px 0px -2px rgba(255, 255, 255, 0.9),
+    inset 0 0 4px 1px rgba(255, 255, 255, 0.55),
+    inset 0 -1px 6px -2px rgba(0, 0, 0, 0.18);
+  background-color: rgba(246, 245, 242, 0.42);
+  pointer-events: none;
+}
+
+.glass::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  -webkit-backdrop-filter: blur(2px) saturate(1.4);
+  backdrop-filter: blur(2px) saturate(1.4);
+  filter: url(#container-glass);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Liquid glass button (icon-sized / pill interactive elements) */
+.glass-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  background: transparent;
+  border-radius: 9999px;
+  outline: none;
+  border: none;
+  z-index: 0;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 9999px;
+  box-shadow:
+    inset 2px 2px 0px -2px rgba(255, 255, 255, 0.9),
+    inset 0 0 4px 1px rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.glass-btn::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: 9999px;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  filter: url(#btn-glass);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ------------------------------------------------------------------ */
+/* Typographic helpers                                                 */
+/* ------------------------------------------------------------------ */
+
+.display {
+  font-family: var(--font-playfair), Georgia, serif;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.hairline {
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+}
+
+/* Word reveal mask */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.06em;
+}
