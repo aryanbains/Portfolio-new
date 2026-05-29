@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Widgets from "@/components/Widgets";
 import FeaturedWork from "@/components/FeaturedWork";
 import Experiments from "@/components/Experiments";
 import Skills from "@/components/Skills";
@@ -22,6 +23,7 @@ export default function Home() {
       <Experiments />
       <Skills />
       <OpenTo />
+      <Widgets />
       <Contact />
     </motion.main>
   );

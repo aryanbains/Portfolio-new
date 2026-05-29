@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import GlassFilters from "@/components/GlassFilters";
-import Cursor from "@/components/Cursor";
 import Navbar from "@/components/Navbar";
 
 const inter = Inter({
@@ -57,9 +56,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        {/* Prevent flash of un-themed content */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">
         <GlassFilters />
-        <Cursor />
         <Navbar />
         {children}
       </body>
