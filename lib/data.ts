@@ -5,6 +5,7 @@ export type Project = {
   stack: string[];
   metric: string;
   href?: string;
+  agentNote?: string;
   links?: { label: string; href: string; kind: "github" | "npm" }[];
   stats?: { value: string; label: string }[];
 };
@@ -18,6 +19,7 @@ export const featuredWork: Project[] = [
     stack: ["Agent Runtime", "Context Engine", "TypeScript", "Next.js"],
     metric: "Founder control plane for company operations",
     href: "https://projectsupermind.com/",
+    agentNote: "[agent-brain] Founder control plane live. Approvals, budgets and audit paths online.",
     stats: [
       { value: "50+", label: "Active Users" },
       { value: "13", label: "AI Agents" },
@@ -31,6 +33,7 @@ export const featuredWork: Project[] = [
     role: "Builder · Tracing",
     stack: ["Tracing", "SQLite", "Dashboard", "TypeScript"],
     metric: "Drop-in tracing + local dashboard",
+    agentNote: "[agent-brain] Trace logs detected. Highly reproducible.",
     links: [
       {
         label: "GitHub",
@@ -57,6 +60,7 @@ export const featuredWork: Project[] = [
     stack: ["LLM Orchestration", "Node.js", "Multi-channel"],
     metric: "PH #4 · 100+ users",
     href: "https://penguinbot.org/",
+    agentNote: "[agent-brain] Multi-channel automations active. Follow-up loops still moving.",
     stats: [
       { value: "#4", label: "Product Hunt" },
       { value: "100+", label: "Active Users" },
@@ -69,6 +73,7 @@ export const featuredWork: Project[] = [
     role: "Lead Engineer",
     stack: ["Rules Engine", "RAG", "Python", "AES-256", ".NET 8"],
     metric: "6–14 months → 2–4 weeks",
+    agentNote: "[agent-brain] Rules engine verified. Bureaucratic latency collapsed.",
     stats: [
       { value: "6–14mo", label: "Before" },
       { value: "2–4wk", label: "After" },
@@ -82,6 +87,7 @@ export const featuredWork: Project[] = [
     role: "Creator · Systems",
     stack: ["Electron", "Local Agents", "Memory", "IPC"],
     metric: "Unified agent desktop",
+    agentNote: "[agent-brain] Ambient desktop context layer active.",
     stats: [
       { value: "1", label: "Surface" },
       { value: "Local", label: "First" },
@@ -94,6 +100,7 @@ export const featuredWork: Project[] = [
     role: "Builder · Debugging",
     stack: ["Replay", "Determinism", "TypeScript"],
     metric: "Deterministic replay",
+    agentNote: "[agent-brain] Replay timeline locked. Flake surface reduced.",
     stats: [
       { value: "Deterministic", label: "Replay" },
       { value: "0", label: "Flaky Runs" },

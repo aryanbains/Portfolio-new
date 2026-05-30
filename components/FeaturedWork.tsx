@@ -56,6 +56,7 @@ export default function FeaturedWork() {
                         rel: "noopener noreferrer",
                       }
                     : {})}
+                  data-agent-note={p.agentNote}
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.5, ease }}
                   className="group glass relative flex flex-col gap-6 rounded-2xl border border-ink/10 p-8 sm:flex-row sm:items-start sm:gap-12 sm:p-10"
@@ -103,7 +104,10 @@ export default function FeaturedWork() {
                     </p>
 
                     {/* Stats row */}
-                    <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-5 border-t border-ink/10 pt-5">
+                    <div
+                      data-agent-focus
+                      className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-5 border-t border-ink/10 pt-5"
+                    >
                       {p.stats?.map((stat) => (
                         <div key={stat.label}>
                           <p

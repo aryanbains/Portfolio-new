@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { navItems } from "@/lib/data";
+import { AgentOverlayToggle } from "./AgentOverlay";
 import ThemeToggle from "./ThemeToggle";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -75,6 +76,8 @@ export default function Navbar() {
             <span className="relative z-10">Email Me</span>
           </a>
 
+          <AgentOverlayToggle />
+
           <ThemeToggle />
 
           {/* Mobile hamburger */}
@@ -131,6 +134,9 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="mt-2 border-t border-ink/10 pt-4">
+                <AgentOverlayToggle mobile />
+              </li>
+              <li className="border-t border-ink/10 pt-4">
                 <a
                   href="mailto:aryanbains6@gmail.com"
                   onClick={() => setOpen(false)}

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import AgentOverlayProvider from "@/components/AgentOverlay";
 import GlassFilters from "@/components/GlassFilters";
 import Navbar from "@/components/Navbar";
 
@@ -66,8 +67,10 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <GlassFilters />
-        <Navbar />
-        {children}
+        <AgentOverlayProvider>
+          <Navbar />
+          {children}
+        </AgentOverlayProvider>
       </body>
     </html>
   );

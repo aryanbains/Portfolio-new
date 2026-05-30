@@ -65,6 +65,7 @@ export default function Hero() {
             {/* PRIMARY — rectangle fill-slide */}
             <a
               href="#work"
+              data-agent-scout="hero-cta"
               className="group relative inline-flex items-center gap-3 overflow-hidden border border-ink px-8 py-3.5 text-sm font-semibold transition-colors duration-500 ease-apple"
               aria-label="View Work"
             >
