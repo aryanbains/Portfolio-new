@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aryanbains.dev"),
-  title: "Aryan Bains — AI Infrastructure Engineer",
+  title: "Aryan Bains | Founder, Builder",
   description:
     "Aryan Bains builds the systems that let agents work: context, tools, execution, control, memory, and debugging. AI Infrastructure Engineer · Agent Systems Builder · Founder at SuperMind.",
   keywords: [
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Aryan Bains" }],
   openGraph: {
-    title: "Aryan Bains — AI Infrastructure Engineer",
+    title: "Aryan Bains | Founder, Builder",
     description: "I build the systems that let agents work.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     creator: "@AryanBains2",
-    title: "Aryan Bains — AI Infrastructure Engineer",
+    title: "Aryan Bains | Founder, Builder",
     description: "I build the systems that let agents work.",
   },
 };
