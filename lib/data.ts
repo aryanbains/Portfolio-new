@@ -90,8 +90,6 @@ export const featuredWork: Project[] = [
 export const experiments: { name: string; note: string }[] = [
   { name: "Garuda Lens", note: "Vision + reasoning experiment for real-time scene understanding" },
   { name: "WildEye", note: "On-device wildlife detection at the edge" },
-  { name: "Retail ERP", note: "0→1 operations platform for small retail businesses" },
-  { name: "Health Risk Predictor", note: "Clinical risk modeling from patient data" },
   { name: "Hackathon Projects", note: "Rapid 0→1 builds under tight deadlines" },
 ];
 

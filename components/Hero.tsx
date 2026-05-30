@@ -105,6 +105,7 @@ export default function Hero() {
                 src="/aryan.jpg"
                 alt="Aryan Bains"
                 fill
+                sizes="(min-width: 1024px) 380px, 100vw"
                 className="object-cover grayscale transition-all duration-700 ease-apple group-hover:grayscale-0 group-hover:scale-[1.03]"
                 priority
                 onError={() => setImgError(true)}
@@ -115,23 +116,6 @@ export default function Hero() {
           </div>
         )}
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
-        className="pointer-events-none absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[0.7rem] uppercase tracking-[0.2em] text-ink/40"
-      >
-        <span>Scroll</span>
-        <motion.span
-          aria-hidden
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="block h-8 w-px"
-          style={{ backgroundColor: "var(--accent-bright)" }}
-        />
-      </motion.div>
     </section>
   );
 }
