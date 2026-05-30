@@ -5,6 +5,7 @@ export type Project = {
   stack: string[];
   metric: string;
   href?: string;
+  links?: { label: string; href: string; kind: "github" | "npm" }[];
   stats?: { value: string; label: string }[];
 };
 
@@ -12,28 +13,40 @@ export const featuredWork: Project[] = [
   {
     name: "SuperMind",
     descriptor:
-      "I built SuperMind because I was a solo founder hitting every wall — no budget to hire, no time to run 10 tools. SuperMind is one platform where a single person can run an entire business: marketing, workflows, team ops, content, approvals, billing. No need to hire five people or pay for ten tools.",
+      "Run your service business, SaaS product, commerce brand, or internal ops company from one SuperMind deployment. Each business gets isolated knowledge, connectors, approvals, budgets, and audit trails, while you keep one founder-level control plane across the whole portfolio. It works like a team of 13 AI agents automating the company with human approval wherever it matters.",
     role: "Founder · Architecture & Infra",
     stack: ["Agent Runtime", "Context Engine", "TypeScript", "Next.js"],
-    metric: "50+ users · $300+ revenue",
+    metric: "Founder control plane for company operations",
     href: "https://projectsupermind.com/",
     stats: [
       { value: "50+", label: "Active Users" },
-      { value: "$300+", label: "Revenue" },
-      { value: "1", label: "Person Team" },
+      { value: "13", label: "AI Agents" },
+      { value: "1", label: "Control Plane" },
     ],
   },
   {
-    name: "GoverRAJ",
+    name: "Agent Prism",
     descriptor:
-      "Police promotions in Rajasthan used to take 6 to 14 months — everything handwritten. Roster files, seniority lists, exam records, 8 manual steps, all prone to errors. I built GoverRAJ to replace that entire pipeline. Input the data, apply 30+ government rules automatically, output everything. What took months now takes weeks.",
-    role: "Lead Engineer",
-    stack: ["Rules Engine", "RAG", "Python", "AES-256", ".NET 8"],
-    metric: "6–14 months → 2–4 weeks",
+      "Drop-in tracing for agent pipelines. Local SQLite, real costs, and a dashboard bundled with the npm package.",
+    role: "Builder · Tracing",
+    stack: ["Tracing", "SQLite", "Dashboard", "TypeScript"],
+    metric: "Drop-in tracing + local dashboard",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/aryanbains/Agent-Prism",
+        kind: "github",
+      },
+      {
+        label: "npm",
+        href: "https://www.npmjs.com/package/agent-prism",
+        kind: "npm",
+      },
+    ],
     stats: [
-      { value: "6–14mo", label: "Before" },
-      { value: "2–4wk", label: "After" },
-      { value: "8", label: "Steps Automated" },
+      { value: "Local", label: "SQLite" },
+      { value: "Real", label: "Costs" },
+      { value: "Bundled", label: "Dashboard" },
     ],
   },
   {
@@ -50,6 +63,19 @@ export const featuredWork: Project[] = [
     ],
   },
   {
+    name: "GoverRAJ",
+    descriptor:
+      "Police promotions in Rajasthan used to take 6 to 14 months — everything handwritten. Roster files, seniority lists, exam records, 8 manual steps, all prone to errors. I built GoverRAJ to replace that entire pipeline. Input the data, apply 30+ government rules automatically, output everything. What took months now takes weeks.",
+    role: "Lead Engineer",
+    stack: ["Rules Engine", "RAG", "Python", "AES-256", ".NET 8"],
+    metric: "6–14 months → 2–4 weeks",
+    stats: [
+      { value: "6–14mo", label: "Before" },
+      { value: "2–4wk", label: "After" },
+      { value: "8", label: "Steps Automated" },
+    ],
+  },
+  {
     name: "Aura OS",
     descriptor:
       "An ambient agent desktop where memory, tools and execution live on one surface. Instead of bouncing between apps, agents operate alongside you — holding context, running tasks, and surfacing the right tool at the right moment.",
@@ -59,18 +85,6 @@ export const featuredWork: Project[] = [
     stats: [
       { value: "1", label: "Surface" },
       { value: "Local", label: "First" },
-    ],
-  },
-  {
-    name: "Agent Prism",
-    descriptor:
-      "Multi-step agents fail in ways you can't see. Agent Prism makes every decision, tool call and state transition visible — so you can trace exactly where a run went wrong and evaluate behavior over time instead of guessing.",
-    role: "Builder · Harness",
-    stack: ["Tracing", "Eval", "Next.js", "OTel"],
-    metric: "Full agent observability",
-    stats: [
-      { value: "100%", label: "Step Visibility" },
-      { value: "Live", label: "Tracing" },
     ],
   },
   {

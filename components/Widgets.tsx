@@ -88,16 +88,48 @@ type GHProfile = {
   html_url: string;
 };
 
+type GHRepo = {
+  name: string;
+  pushed_at: string;
+  fork: boolean;
+  archived: boolean;
+};
+
 function GitHubWidget() {
   const [data, setData] = useState<GHProfile | null>(null);
+  const [monthActivity, setMonthActivity] = useState<number | null>(null);
+  const [latestRepo, setLatestRepo] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const activeMonthLabel = new Intl.DateTimeFormat("en", { month: "short" }).format(new Date());
 
   useEffect(() => {
-    fetch("https://api.github.com/users/aryanbains", {
-      headers: { Accept: "application/vnd.github+json" },
-    })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d: GHProfile | null) => { setData(d); setLoading(false); })
+    Promise.all([
+      fetch("https://api.github.com/users/aryanbains", {
+        headers: { Accept: "application/vnd.github+json" },
+      }).then((r) => (r.ok ? r.json() : null)),
+      fetch("https://api.github.com/users/aryanbains/repos?sort=updated&per_page=100", {
+        headers: { Accept: "application/vnd.github+json" },
+      }).then((r) => (r.ok ? r.json() : [])),
+    ])
+      .then(([profile, repos]: [GHProfile | null, GHRepo[]]) => {
+        setData(profile);
+
+        const monthStart = new Date();
+        monthStart.setDate(1);
+        monthStart.setHours(0, 0, 0, 0);
+
+        const activeRepos = repos.filter(
+          (repo) => !repo.fork && !repo.archived && new Date(repo.pushed_at) >= monthStart,
+        );
+
+        setMonthActivity(activeRepos.length || null);
+
+        const latestMeaningfulRepo = repos.find(
+          (repo) => !repo.fork && !repo.archived && repo.name !== "Portfolio-new",
+        );
+        setLatestRepo(latestMeaningfulRepo?.name ?? null);
+        setLoading(false);
+      })
       .catch(() => setLoading(false));
   }, []);
 
@@ -149,12 +181,18 @@ function GitHubWidget() {
         </p>
       )}
 
+      {latestRepo && (
+        <p className="relative z-10 mt-3 text-xs uppercase tracking-[0.16em] text-ink/38">
+          Latest ship · {latestRepo}
+        </p>
+      )}
+
       <div className="relative z-10 mt-6 flex items-center gap-6 border-t border-ink/10 pt-4">
         <div>
           <p className="text-xl font-semibold" style={{ color: "var(--accent-bright)" }}>
-            {data?.public_repos ?? "--"}
+            {monthActivity ?? "--"}
           </p>
-          <p className="mt-0.5 text-xs uppercase tracking-wider text-ink/40">Repositories</p>
+          <p className="mt-0.5 text-xs uppercase tracking-wider text-ink/40">Updated in {activeMonthLabel}</p>
         </div>
         <span
           className="ml-auto text-xs text-ink/30 transition-colors duration-300 group-hover:text-ink/60"

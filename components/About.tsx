@@ -5,7 +5,7 @@ import AnimatedText from "./AnimatedText";
 
 export default function About() {
   return (
-    <section id="about" className="px-6 py-24 sm:px-10 sm:py-32 lg:px-16 lg:py-40">
+    <section id="about" className="px-6 pb-16 pt-24 sm:px-10 sm:pb-20 sm:pt-32 lg:px-16 lg:pb-24 lg:pt-40">
       <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <Reveal>
           <p className="eyebrow">About</p>
