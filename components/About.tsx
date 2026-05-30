@@ -21,8 +21,8 @@ export default function About() {
             <p>
               I&rsquo;m a 4th-year BTech student and founder who builds at the
               intersection of AI systems and real products. I started Lucentra Labs with
-              zero funding and zero team — and shipped SuperMind, GoverRAJ, and PenguinBot
-              from that single desk. My work is about one thing: making agents actually
+               and shipped SuperMind, GoverRAJ, and PenguinBot. 
+              My work is about one thing: making agents actually
               work in the real world, not just in demos.
             </p>
           </Reveal>
